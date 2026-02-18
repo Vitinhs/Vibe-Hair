@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Layout from './components/Layout';
 import { HairPlan, HairDiagnosis, HairType, ScalpType, MainGoal } from './types';
 import { generateHairPlan } from './services/geminiService';
@@ -189,9 +190,12 @@ const App: React.FC = () => {
   };
 
   return (
-    <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-      {renderContent()}
-    </Layout>
+    <>
+      <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+        {renderContent()}
+      </Layout>
+      <SpeedInsights />
+    </>
   );
 };
 
